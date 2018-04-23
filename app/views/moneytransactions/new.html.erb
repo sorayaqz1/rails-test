@@ -1,0 +1,11 @@
+<h1>Create a new money transaction</h1>
+
+<%= form_for @moneytransaction do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

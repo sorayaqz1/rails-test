@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :articles
+  resources :moneytransactions
+
   get 'welcome/index'
   #
   root 'welcome#index'
