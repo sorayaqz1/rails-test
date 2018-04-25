@@ -1,4 +1,6 @@
 class MoneytransactionsController < ApplicationController
+  before_action :set_moneytransaction, only: [:edit, :update, :show, :destroy]
+
   def index
     @moneytransactions = Moneytransaction.all
   end
@@ -18,11 +20,9 @@ class MoneytransactionsController < ApplicationController
   end
 
   def edit
-    @moneytransaction = Moneytransaction.find(params[:id])
   end
 
   def update
-    @moneytransaction = Moneytransaction.find(params[:id])
     if @moneytransaction.update(moneytransaction_params)
       flash[:notice] = "Money transaction was successfully update"
       redirect_to moneytransaction_path(@moneytransaction)
@@ -34,18 +34,21 @@ class MoneytransactionsController < ApplicationController
 
 
   def show
-    @moneytransaction = Moneytransaction.find(params[:id])
   end
 
   def destroy
-    @moneytransaction = Moneytransaction.find(params[:id])
     @moneytransaction.destroy
     flash[:notice] = "Money transaction was successfully deleted"
     redirect_to moneytransactions_path
   end
 
-  def moneytransaction_params
-    params.require(:moneytransaction).permit(:title)
-  end
+  private
+    def set_moneytransaction
+      @moneytransaction = Moneytransaction.find(params[:id])
+    end
+
+    def moneytransaction_params
+      params.require(:moneytransaction).permit(:title)
+    end
 
 end
