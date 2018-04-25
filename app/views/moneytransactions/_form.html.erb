@@ -1,0 +1,20 @@
+<% if @moneytransaction.errors.any? %>
+  <h2>The following erros prevened the money transaction from getting created</h2>
+  <ul>
+    <% @moneytransaction.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @moneytransaction do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to "Back to money transaction listing", moneytransactions_path %>

@@ -14,7 +14,7 @@
       <td><%= moneytransaction.title %></td>
       <td><%= link_to "Edit", edit_moneytransaction_path(moneytransaction) %></td>
       <td><%= link_to "Show", moneytransaction_path(moneytransaction) %></td>
-
+      <td><%= link_to "Delete", moneytransaction_path(moneytransaction), method: :delete, data: {confirm: "Are you sure?"}%></td>
 
     </tr>
   <% end %>

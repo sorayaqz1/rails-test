@@ -29,12 +29,19 @@ class MoneytransactionsController < ApplicationController
     else
       render 'edit'
     end
-
   end
+
 
 
   def show
     @moneytransaction = Moneytransaction.find(params[:id])
+  end
+
+  def destroy
+    @moneytransaction = Moneytransaction.find(params[:id])
+    @moneytransaction.destroy
+    flash[:notice] = "Money transaction was successfully deleted"
+    redirect_to moneytransactions_path
   end
 
   def moneytransaction_params
