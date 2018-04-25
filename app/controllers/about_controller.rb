@@ -1,3 +1,3 @@
-Class AboutController < ApplicationController
-  
+class AboutController < ApplicationController
+
 end
